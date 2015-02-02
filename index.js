@@ -24,7 +24,7 @@ function raiting_corrected(){
 	setTimeout(correct_raiting, CORRECTION_INTERVAL);
 }
 
-hidemyass.scrap(function(err, proxies){
+hidemyass.scrap(1,10, function(err, proxies){
 	if(err){
 		console.error(err);
 		return;
