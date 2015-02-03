@@ -25,7 +25,7 @@ function raiting_corrected(){
 }
 
 console.log("Scrapping hidemyass");
-hidemyass.scrap(1,10, function(err, proxies){
+hidemyass.scrap(function(err, proxies){
 	if(err){
 		console.error(err);
 		return;
