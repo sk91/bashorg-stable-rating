@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^0.9.0",
-    "hidemyass": "git+ssh://git@bitbucket.org:sk91/hidemyass.git",
+    "hidemyass": "git+https://sk91@bitbucket.org/sk91/hidemyass.git#1.0.0",
     "iconv": "^2.1.5",
     "request": "^2.52.0",
     "scraperjs": "^0.3.2"
