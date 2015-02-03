@@ -24,11 +24,13 @@ function raiting_corrected(){
 	setTimeout(correct_raiting, CORRECTION_INTERVAL);
 }
 
+console.log("Scrapping hidemyass");
 hidemyass.scrap(1,10, function(err, proxies){
 	if(err){
 		console.error(err);
 		return;
 	}
+	console.log("Got " + proxies.lenght + " starting raitng controll");
 
 	bashorg.proxies = proxies;
 	correct_raiting();
