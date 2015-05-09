@@ -1,20 +1,19 @@
 {
   "name": "bashorg-stable-rating",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just for fun script that should keep a stable rating of a post on http://bash.im",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Maxim Kovalov <max.kovalov@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
-    "hidemyass": "git+https://sk91@bitbucket.org/sk91/hidemyass.git#1.0.0",
+    "hidemyass": "^2.0.1",
     "iconv": "^2.1.5",
     "request": "^2.52.0",
-    "scraperjs": "^0.3.2"
+    "scrappers": "^2.0.0"
   }
 }

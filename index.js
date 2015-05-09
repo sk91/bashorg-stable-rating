@@ -1,14 +1,19 @@
-var bashorg = require('./lib');
 var hidemyass = require("hidemyass");
+var bashorg = require('./lib');
+var config = require('./config');
 
-var QUOTE = 432170;
-var DESIRED_RATING = 666;
-var CORRECTION_INTERVAL = 1000;
+var QUOTE = config.quote;
+var DESIRED_RATING = config.rating;
+var CORRECTION_INTERVAL = config.interval;
 
 
 function correct_raiting(){
-	bashorg.get_raiting(QUOTE, function(raiting){
-		console.log("Rescived the following rating: ", raiting)
+	console.log("Getting rating of quote ", QUOTE);
+
+	bashorg.get_raiting(QUOTE, function(err,raiting){
+
+		console.log("Rescived the following rating: ", raiting);
+
 		if(raiting === DESIRED_RATING){
 			return raiting_corrected()
 		}
@@ -25,13 +30,18 @@ function raiting_corrected(){
 }
 
 console.log("Scrapping hidemyass");
-hidemyass.scrap(function(err, proxies){
+hidemyass.proxies().get(function(err, proxies){
 	if(err){
 		console.error(err);
 		return;
 	}
-	console.log("Got " + proxies.lenght + " starting raitng controll");
+	console.log("Got " + proxies.length + " starting raitng controll");
 
-	bashorg.proxies = proxies;
+	bashorg.proxies = proxies.map(proxy_url_creator);
 	correct_raiting();
 });
+
+
+function proxy_url_creator(proxy){
+	return proxy.protocol + "://" + proxy.ip + ":" + proxy.port;
+}
